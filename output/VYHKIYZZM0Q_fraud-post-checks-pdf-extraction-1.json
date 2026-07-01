@@ -1,0 +1,1 @@
+{"fraud-check-name":"Consumer name verification","origin-service-type":"pdf-extraction","result":"OK","findings":[{"result":"ERROR","message":"Consumer name mismatch: 'jane doe' | 'mr dmitry lvovich drabkin' (Both initials or first name and last name mismatch)","levenshtein-distance":24}]}

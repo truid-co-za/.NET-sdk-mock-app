@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TruID.Connect.SDK</name>
+    </assembly>
+    <members>
+        <member name="T:TruID.Connect.SDK.ClientConfig">
+            <summary>
+            Configuration for <see cref="T:TruID.Connect.SDK.TruIDClient"/>.
+            Build with <see cref="T:TruID.Connect.SDK.ClientConfig.Builder"/> via <see cref="M:TruID.Connect.SDK.ClientConfig.Create(System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.ClientConfig.Create(System.String)">
+            <summary>Start building a config for the given API key.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.CollectionContext">
+            <summary>
+            Returned by <see cref="M:TruID.Connect.SDK.ConnectContext.StartAsync(System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.String},System.String,System.String,System.String,System.String,System.Threading.CancellationToken)"/>.
+            Provides all operations on an active collection.
+            </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.StatusAsync(System.Threading.CancellationToken)">
+            <summary>Get the current collection status.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.WaitForAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Poll status until terminal or challenge required, or until <paramref name="timeoutSeconds"/> elapses.
+            </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.InviteAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>Send an invite to the consumer.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.ResolveAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>Resolve a challenge.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.GetChallengeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>Get a challenge by ID.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.GetProductsAsync(System.Threading.CancellationToken)">
+            <summary>List available data products for the collection.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.GetDataAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>Download a data product.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.GetAllProductsAsync(System.Threading.CancellationToken)">
+            <summary>Download every available data product for this collection as a ZIP archive (raw bytes).</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.GetProductsSummaryAsync(System.Threading.CancellationToken)">
+            <summary>Download the typed summary of all data products for this collection.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.ViewAsync(System.Int32,System.Int32,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>List all collections (pass null collectionId for paginated list).</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.ViewCollectionAsync(System.String,System.Threading.CancellationToken)">
+            <summary>View a specific collection by ID.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.CollectionContext.DeleteAsync(System.Threading.CancellationToken)">
+            <summary>Delete the collection.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.ConnectContext">
+            <summary>
+            Returned by <see cref="M:TruID.Connect.SDK.TruIDClient.ConnectAsync(System.Boolean,System.Threading.CancellationToken)"/>.
+            Use <see cref="M:TruID.Connect.SDK.ConnectContext.StartAsync(System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.String},System.String,System.String,System.String,System.String,System.Threading.CancellationToken)"/> to begin a collection.
+            </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.ConnectContext.StartAsync(System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.String},System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Start a collection.
+            </summary>
+            <param name="name">Consumer full name (required).</param>
+            <param name="idNumber">Consumer ID number (required).</param>
+            <param name="brandId">Brand ID for the collection.</param>
+            <param name="serviceIds">Service IDs to request for the collection.</param>
+            <param name="consentId">Re-use an existing consent.</param>
+            <param name="username">Consumer portal username (alternative to consentId).</param>
+            <param name="password">Consumer portal password (used with username).</param>
+            <param name="idType">Consumer ID type.</param>
+            <param name="ct">Cancellation token.</param>
+        </member>
+        <member name="M:TruID.Connect.SDK.ConnectContext.UploadAsync(System.String,System.String,System.Collections.Generic.IReadOnlyList{System.String},System.String,System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Create a collection by extracting data from ePDF bank statements.
+            </summary>
+            <param name="name">Consumer full name.</param>
+            <param name="idNumber">Consumer ID number.</param>
+            <param name="files">Paths to the PDF files to upload.</param>
+            <param name="brandId">Brand ID (defaults to first brand).</param>
+            <param name="idType">Consumer ID type.</param>
+            <param name="forceExtraction">Force re-extraction of the uploaded documents.</param>
+            <param name="ct">Cancellation token.</param>
+        </member>
+        <member name="T:TruID.Connect.SDK.Models.ProductsSummary">
+            <summary>
+            Typed response of <c>GET /delivery-api/collections/{collectionId}/products/summary</c>.
+            Properties may be null because the API omits null / empty values.
+            </summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Models.SummaryStatement">
+            <summary>The <c>statement</c> block of a <see cref="T:TruID.Connect.SDK.Models.ProductsSummary"/>.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.SummaryStatement.Summaries">
+            <summary>Count of monthly summary rows.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Models.SummaryCustomer">
+            <summary>Customer block of a <see cref="T:TruID.Connect.SDK.Models.ProductsSummary"/>.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.SummaryCustomer.Match">
+            <summary>Levenshtein distance between <c>name</c> and <c>format</c>; <c>-1</c> when unavailable.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.SummaryCustomer.Type">
+            <summary>Origin of the data: <c>online</c>, <c>statement</c> or <c>unknown</c>.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Models.SummaryCheck">
+            <summary>A single check (fraud / personal-info / etc.) in a <see cref="T:TruID.Connect.SDK.Models.ProductsSummary"/>.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Models.SummaryAccount">
+            <summary>An account block of a <see cref="T:TruID.Connect.SDK.Models.ProductsSummary"/>.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.SummaryAccount.Id">
+            <summary>SHA-256 hash of <c>accountNumber:accountName</c>.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Models.SummaryTransaction">
+            <summary>A categorised transaction in a <see cref="T:TruID.Connect.SDK.Models.SummaryAccount"/>.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.SummaryTransaction.Type">
+            <summary>Transaction direction: <c>credit</c> or <c>debit</c>.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.SummaryTransaction.Date">
+            <summary>ISO-like timestamp, e.g. <c>2024-01-15T00:00:00.000000Z</c>.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Models.SummaryMonth">
+            <summary>A monthly aggregate row of a <see cref="T:TruID.Connect.SDK.Models.ProductsSummary"/>. Monetary values are decimal strings.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.SummaryMonth.Month">
+            <summary>Month name, e.g. <c>JANUARY</c>.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.Status.IsTerminal">
+            <summary>Terminal when collection reached success, failure, or other final state (code &gt;= 2000).</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.Models.Status.RequiresChallenge">
+            <summary>Requires challenge response for known bank authentication prompts.</summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Platform.ConfigManager">
+            <summary>
+            Reads environment variables, .env, and .truid.properties to resolve SDK configuration.
+            Priority: TRUID_* env vars → legacy names → .env file → defaults.
+            </summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Platform.ExtracterServiceV40">
+             <summary>
+             Platform implementation for the truID Extracter API v4.0 (extracter-api).
+            
+             Upload feature:
+               POST /uploads — create a collection by extracting data from one or more
+               ePDF bank statements (multipart/form-data). The API responds with 201 and
+               a Location header carrying the new collection ID.
+             </summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.Platform.HttpClientWrapper">
+            <summary>
+            Shared HTTP client with retry on 5xx responses and connection-pool reuse.
+            One instance is created per TruIDClient and shared across all services.
+            </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.Platform.HttpClientWrapper.#ctor(System.Net.Http.HttpMessageHandler,System.Int32)">
+            <summary>Test-only constructor: inject a custom <see cref="T:System.Net.Http.HttpMessageHandler"/>.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.Platform.HttpClientWrapper.PostMultipartAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Net.Http.MultipartFormDataContent,System.Threading.CancellationToken)">
+            <summary>
+            POST a <see cref="T:System.Net.Http.MultipartFormDataContent"/> body (for multipart/form-data uploads).
+            The content sets its own Content-Type header (including the boundary).
+            </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.Platform.ProductsServiceV40.GetAllProductsAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+             <summary>
+             Download every available data product for a collection in one call.
+             GET /delivery-api/collections/{collectionId}/products/all
+            
+             The endpoint returns a ZIP archive (<c>application/zip</c>) containing one
+             file per data product, so the raw archive bytes are returned.
+             </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.Platform.ProductsServiceV40.GetProductsSummaryAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Download the typed summary of all data products for a collection.
+            GET /delivery-api/collections/{collectionId}/products/summary
+            </summary>
+        </member>
+        <member name="T:TruID.Connect.SDK.TruIDClient">
+            <summary>
+            Entry point for the truID Connect SDK.
+            Create one instance per application; it is thread-safe and reusable.
+            Dispose when done to release the underlying HTTP connection pool.
+            </summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.TruIDClient.#ctor(TruID.Connect.SDK.ClientConfig)">
+            <summary>Create a client using a <see cref="T:TruID.Connect.SDK.ClientConfig"/>.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.TruIDClient.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>Create a client with explicit parameters.</summary>
+        </member>
+        <member name="P:TruID.Connect.SDK.TruIDClient.IsFree">
+            <summary>True after <see cref="M:TruID.Connect.SDK.TruIDClient.Dispose"/> has been called.</summary>
+        </member>
+        <member name="M:TruID.Connect.SDK.TruIDClient.ConnectAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Fetch or refresh the connect manifest (available companies, brands, providers).
+            </summary>
+            <param name="reset">When true, clears the in-memory cache before fetching.</param>
+            <param name="ct">Cancellation token.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,154 @@
+{
+  "statement": {
+    "customer": {
+      "id": "VYHKJNF7VOB",
+      "name": "Jane Doe",
+      "format": "MR DMITRY LVOVICH DRABKIN",
+      "match": 24,
+      "bank": "CAPITEC",
+      "type": "statement"
+    },
+    "checks": [
+      {
+        "type": "pdf-extraction",
+        "level": "ERROR",
+        "message": "Consumer name mismatch: \u0027jane doe\u0027 | \u0027mr dmitry lvovich drabkin\u0027 (Both initials or first name and last name mismatch)"
+      }
+    ],
+    "accounts": [
+      {
+        "id": "40d709daf329588699e65ce5fe22c49b93c47850ff3cccf771a2846632099547",
+        "account_number": "1500824303",
+        "account_name": "Savings Account",
+        "account_balance": 25.62,
+        "account_available": 25.62,
+        "transactions": [
+          {
+            "id": "1782890604",
+            "type": "credit",
+            "amount": 0.10,
+            "description": "Interest Received",
+            "date": "2023-03-31T00:00:00.000000Z",
+            "balance": 33.92,
+            "category_one": "Income",
+            "category_two": "Interest",
+            "category_three": "Interest received"
+          },
+          {
+            "id": "1782890605",
+            "type": "debit",
+            "amount": 7.00,
+            "description": "Monthly Account Admin Fee",
+            "date": "2023-03-31T00:00:00.000000Z",
+            "balance": 26.92,
+            "category_one": "Mandatory Expense",
+            "category_two": "Fees",
+            "category_three": "Bank fees"
+          },
+          {
+            "id": "1782890606",
+            "type": "credit",
+            "amount": 0.08,
+            "description": "Interest Received",
+            "date": "2023-04-30T00:00:00.000000Z",
+            "balance": 27.00,
+            "category_one": "Income",
+            "category_two": "Interest",
+            "category_three": "Interest received"
+          },
+          {
+            "id": "1782890607",
+            "type": "debit",
+            "amount": 7.00,
+            "description": "Monthly Account Admin Fee",
+            "date": "2023-04-30T00:00:00.000000Z",
+            "balance": 20.00,
+            "category_one": "Mandatory Expense",
+            "category_two": "Fees",
+            "category_three": "Bank fees"
+          },
+          {
+            "id": "1782890608",
+            "type": "credit",
+            "amount": 0.01,
+            "description": "Payment Received: Investecpbd Drabkin Transfer 1023767390",
+            "date": "2023-05-18T00:00:00.000000Z",
+            "balance": 20.01,
+            "category_one": "EFT",
+            "category_two": "EFT Inbound",
+            "category_three": "Personal transfers"
+          },
+          {
+            "id": "1782890609",
+            "type": "credit",
+            "amount": 5.55,
+            "description": "Banking App Transfer Received from Bank Test (1500825350) Transfer",
+            "date": "2023-05-28T00:00:00.000000Z",
+            "balance": 25.56,
+            "category_one": "EFT",
+            "category_two": "EFT Inbound",
+            "category_three": "Personal transfers"
+          },
+          {
+            "id": "1782890610",
+            "type": "credit",
+            "amount": 0.06,
+            "description": "Interest Received",
+            "date": "2023-05-31T00:00:00.000000Z",
+            "balance": 25.62,
+            "category_one": "Income",
+            "category_two": "Interest",
+            "category_three": "Interest received"
+          },
+          {
+            "id": "1782890611",
+            "type": "debit",
+            "amount": 7.00,
+            "description": "Monthly Account Admin Fee",
+            "date": "2023-05-31T00:00:00.000000Z",
+            "balance": 18.62,
+            "category_one": "Mandatory Expense",
+            "category_two": "Fees",
+            "category_three": "Bank fees"
+          }
+        ]
+      }
+    ],
+    "summaries": 3,
+    "summaryData": [
+      {
+        "month": "MARCH",
+        "year": 2023,
+        "total_expenses": "7.00",
+        "average_expenses": "7",
+        "total_debt_repayments": "7.00",
+        "average_debt_repayments": "7",
+        "total_income": "0.10",
+        "main_income": "0.00"
+      },
+      {
+        "month": "APRIL",
+        "year": 2023,
+        "total_expenses": "7.00",
+        "average_expenses": "7",
+        "total_debt_repayments": "7.00",
+        "average_debt_repayments": "7",
+        "total_income": "0.08",
+        "main_income": "0.00"
+      },
+      {
+        "month": "MAY",
+        "year": 2023,
+        "total_expenses": "7.00",
+        "average_expenses": "7",
+        "total_debt_repayments": "7.00",
+        "average_debt_repayments": "7",
+        "total_income": "5.62",
+        "main_income": "0.00"
+      }
+    ],
+    "salary": 0,
+    "income": 5.8,
+    "expenses": 21
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "truid-connect-example/1.0.0": {
+        "dependencies": {
+          "TruID.Connect.SDK": "1.1.2"
+        },
+        "runtime": {
+          "truid-connect-example.dll": {}
+        }
+      },
+      "TruID.Connect.SDK/1.1.2": {
+        "runtime": {
+          "TruID.Connect.SDK.dll": {
+            "assemblyVersion": "1.1.2.0",
+            "fileVersion": "1.1.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "truid-connect-example/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TruID.Connect.SDK/1.1.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
