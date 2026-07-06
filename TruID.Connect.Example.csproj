@@ -11,7 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\dotnet\src\TruID.Connect.SDK\TruID.Connect.SDK.csproj" />
+    <!-- A client consumes the SDK as a NuGet package (feed is in nuget.config).
+         To build against a local SDK checkout instead, replace this with:
+         <ProjectReference Include="..\sdk\src\dotnet\src\TruID.Connect.SDK\TruID.Connect.SDK.csproj" /> -->
+    <PackageReference Include="TruID.Connect.SDK" Version="1.1.2" />
   </ItemGroup>
 
 </Project>

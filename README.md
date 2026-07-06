@@ -26,6 +26,16 @@ Product types in Postman (`$product-address`, `$product-bank-statement`, etc.) a
 - truID API key with access to the test (`tst`) environment
 - A PDF bank statement file
 
+## How the SDK is referenced
+
+This example consumes the SDK as a NuGet package — you do **not** need the SDK
+source. `TruID.Connect.SDK` is restored from truID's package feed, which is
+configured in [`nuget.config`](./nuget.config); the version is pinned in
+[`TruID.Connect.Example.csproj`](./TruID.Connect.Example.csproj).
+
+`dotnet restore` (run automatically by `dotnet run`) downloads it. The public
+methods, XML docs, and IntelliSense all come from the package.
+
 ## Configuration
 
 Copy `.env.example` to `.env` and set your API key, or export variables:
@@ -42,7 +52,7 @@ No credentials are stored in source code.
 From the repository root:
 
 ```bash
-dotnet run --project TruID.Connect.Example -- --file /path/to/statement.pdf
+dotnet run -- --file /path/to/statement.pdf
 ```
 
 Outputs are written to `./output/` by default:
@@ -65,15 +75,17 @@ Outputs are written to `./output/` by default:
 
 ## Local stub server
 
-To test against the in-repo stub instead of the real API:
+The SDK repository ships a stub server you can run instead of the real API
+(handy for local testing without live credentials). From a checkout of the SDK
+repo:
 
 ```bash
-# Terminal 1
+# Terminal 1 — in the SDK repo
 cd src/stub && pip install -r requirements.txt
 STUB_HTTP=1 uvicorn server:app --port 8765
 
-# Terminal 2 — create .truid.properties in cwd with {"tst":"localhost:8765"}
+# Terminal 2 — in this repo; create .truid.properties in cwd with {"tst":"localhost:8765"}
 export TRUID_CLIENT_ID=test-api-key-stub
 export TRUID_ENVIRONMENT=tst
-dotnet run --project TruID.Connect.Example -- --file statement.pdf --no-verify-ssl
+dotnet run -- --file statement.pdf --no-verify-ssl
 ```
