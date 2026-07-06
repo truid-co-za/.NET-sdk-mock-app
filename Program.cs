@@ -59,7 +59,6 @@ internal static class Program
         var config = ClientConfig.Create(apiKey)
             .WithEnvironment(environment)
             .WithVersion("4.0")
-            .WithVerifySsl(options.VerifySsl)
             .Build();
 
         try
@@ -258,7 +257,6 @@ internal static class Program
               --no-force          Skip forceExtraction on upload
               --wait SECONDS      Status poll timeout (default: 300)
               --interval SECONDS  Poll interval (default: 2)
-              --no-verify-ssl     Disable TLS verification (local stub only)
               -h, --help          Show this help
 
             Example:
@@ -277,7 +275,6 @@ internal static class Program
         bool ForceExtraction,
         int WaitTimeoutSeconds,
         int PollIntervalSeconds,
-        bool VerifySsl,
         bool ShowHelp)
     {
         internal static AppOptions Parse(string[] args)
@@ -291,7 +288,6 @@ internal static class Program
             var forceExtraction = true;
             var wait = 300;
             var interval = 2;
-            var verifySsl = true;
             var showHelp = false;
 
             for (var i = 0; i < args.Length; i++)
@@ -337,9 +333,6 @@ internal static class Program
                         if (++i >= args.Length || !int.TryParse(args[i], out interval))
                             throw new ArgumentException("--interval requires seconds");
                         break;
-                    case "--no-verify-ssl":
-                        verifySsl = false;
-                        break;
                     default:
                         if (args[i].StartsWith('-'))
                             throw new ArgumentException($"Unknown option: {args[i]}");
@@ -350,7 +343,7 @@ internal static class Program
 
             return new AppOptions(
                 files, outputDir, name, idNumber, idType, brandId,
-                forceExtraction, wait, interval, verifySsl, showHelp);
+                forceExtraction, wait, interval, showHelp);
         }
     }
 }
